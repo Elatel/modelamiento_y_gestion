@@ -1,0 +1,730 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf610
+{\fonttbl\f0\fnil\fcharset0 Monaco;}
+{\colortbl;\red255\green255\blue255;\red242\green242\blue242;\red0\green0\blue0;\red242\green242\blue242;
+}
+{\*\expandedcolortbl;;\csgray\c95825;\csgray\c0\c85000;\csgray\c95825\c85000;
+}
+\margl1440\margr1440\vieww13860\viewh17220\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs20 \cf2 \cb3 \CocoaLigature0 (base) felipes-MacBook-Air:modelamiento_y_gestion felipeletelier$ psql;\
+psql (12.3)\
+Type "help" for help.\
+\
+felipeletelier=# CREATE DATABASE peliculas;\
+CREATE DATABASE\
+felipeletelier=# CREATE TABLE peliculas(\
+felipeletelier(# id INT;\
+felipeletelier(# DFWEF\
+felipeletelier(# );\
+ERROR:  syntax error at or near ";"\
+LINE 2: id INT;\
+              ^\
+felipeletelier=# CREATE TABLE peliculas(\
+felipeletelier(# id INT,\
+felipeletelier(# pelicula VARCHAR(300),\
+felipeletelier(# releace_year VARCHAR(300),\
+felipeletelier(# director VARCHAR(300),\
+felipeletelier(# PRIMARY KEY (id)\
+felipeletelier(# );\
+CREATE TABLE\
+felipeletelier=# CREATE TABLE reparto(\
+felipeletelier(# id INT,\
+felipeletelier(# actores VARCHAR(300),\
+felipeletelier(# FOREIGN KEY(id) REFERENCES\
+felipeletelier(# peliculas(id)\
+felipeletelier(# );\
+CREATE TABLE\
+felipeletelier=# DROP TABLE reparto;\
+DROP TABLE\
+felipeletelier=# DROP TABLE peliculas;\
+DROP TABLE\
+felipeletelier=# \\c peliculas;\
+You are now connected to database "peliculas" as user "felipeletelier".\
+peliculas=# felipeletelier=# CREATE TABLE peliculas(\
+peliculas(# felipeletelier(# id INT,\
+peliculas(# felipeletelier(# pelicula VARCHAR(300),\
+peliculas(# felipeletelier(# releace_year VARCHAR(300),\
+peliculas(# felipeletelier(# director VARCHAR(300),\
+peliculas(# felipeletelier(# PRIMARY KEY (id)\
+peliculas(# CREATE TABLE peliculas(   \
+peliculas(# id INT,\
+peliculas(# pelicula VARCHAR(300),\
+peliculas(# releace_year VARCHAR(300),\
+peliculas(# director VARCHAR(300),\
+peliculas(# PRIMARY KEY(id)\
+peliculas(# );\
+peliculas(# );\
+peliculas(# dfgdffgd\
+peliculas(# ;\
+peliculas(# );     \
+peliculas(# AFSDG<DGF\
+peliculas(# ;\
+peliculas(# ),\
+peliculas(# ^C\
+peliculas=# \
+peliculas=# CREATE TABLE peliculas(\
+peliculas(# id INT,\
+peliculas(# pelicula VARCHAR(300),\
+peliculas(# releace_year VARCHAR(300),\
+peliculas(# director VARCHAR(300),\
+peliculas(# PRIMARY KEY(id)\
+peliculas(# );\
+CREATE TABLE\
+peliculas=# CREATE TABLE reparto(\
+peliculas(# id INT,\
+peliculas(# actores VARCHAR(300),\
+peliculas(# FOREIGN KEY(id) REFERENCES\
+peliculas(# peliculas(id)\
+peliculas(# );\
+CREATE TABLE\
+peliculas=# \\copy peliculas FROM'peliculas.csv' csv header;\
+\\copy: parse error at "FROM'peliculas"\
+peliculas=# \\copy peliculas FROM'peliculas.csv' csv [header];\
+\\copy: parse error at "FROM'peliculas"\
+peliculas=# \\copy peliculas FROM'peliculas.csv' csv header;  \
+\\copy: parse error at "FROM'peliculas"\
+peliculas=# \\q\
+(base) felipes-MacBook-Air:modelamiento_y_gestion felipeletelier$ cd\
+(base) felipes-MacBook-Air:~ felipeletelier$ cd Dektop\
+-bash: cd: Dektop: No such file or directory\
+(base) felipes-MacBook-Air:~ felipeletelier$ ls       \
+Applications	Documents	Library		Music		Postman		Public		anaconda3\
+Desktop		Downloads	Movies		Pictures	Projects	Untitled.ipynb	dumpall.sql\
+(base) felipes-MacBook-Air:~ felipeletelier$ cd Desktop/\
+(base) felipes-MacBook-Air:Desktop felipeletelier$ psql\
+psql (12.3)\
+Type "help" for help.\
+\
+felipeletelier=# \\c peliculas\
+You are now connected to database "peliculas" as user "felipeletelier".\
+peliculas=# \\copy peliculas FROM '/modelamiento_y_gestion/peliculas.csv' csv header;\
+/modelamiento_y_gestion/peliculas.csv: No such file or directory\
+peliculas=# \\copy peliculas FROM 'Desktop/modelamiento_y_gestion/peliculas.csv' csv header;\
+Desktop/modelamiento_y_gestion/peliculas.csv: No such file or directory\
+peliculas=# \\copy peliculas FROM 'modelamiento_y_gestion/peliculas.csv' csv header;\
+COPY 100\
+peliculas=# SELECT * FROM peliculas;\
+ id  |                       pelicula                        | releace_year |       director        \
+-----+-------------------------------------------------------+--------------+-----------------------\
+   1 | Forest Gump                                           | 1994         | Robert Zemeckis\
+   2 | Titanic                                               | 1997         | James Cameron\
+   3 | El Padrino                                            | 1972         | Francis Ford Coppola\
+   4 | Gladiator                                             | 2000         | Ridley Scott\
+   5 | El Se\cf0 \cb4 <C3><B1>\cf2 \cb3 or de los anillos: El retorno del rey          | 2003         | Peter Jackson\
+   6 | El caballero oscuro                                   | 2008         | Christopher Nolan\
+   7 | Cadena perpetua                                       | 1994         | Frank Darabont\
+   8 | Piratas del Caribe: La maldici\cf0 \cb4 <C3><B3>\cf2 \cb3 n de la Perla Negra   | 2003         | Gore Verbinski\
+   9 | Braveheart                                            | 1995         | Mel Gibson\
+  10 | La lista de Schindler                                 | 1993         | Steven Spielberg\
+  11 | Toy Story                                             | 1995         | John Lasseter\
+  12 | Eduardo Manostijeras                                  | 1990         | Tim Burton\
+  13 | El Se\cf0 \cb4 <C3><B1>\cf2 \cb3 or de los anillos: La comunidad del anillo     | 2001         | Peter Jackson\
+  14 | Salvar al soldado Ryan                                | 1998         | Steven Spielberg\
+  15 | Regreso al futuro                                     | 1985         | Robert Zemeckis\
+  16 | Monstruos S.A.                                        | 2001         | Pete Docter\
+  17 | Buscando a Nemo                                       | 2003         | Andrew Stanton\
+  18 | El Se\cf0 \cb4 <C3><B1>\cf2 \cb3 or de los anillos: Las dos torres              | 2002         | Peter Jackson\
+  19 | Harry Potter y el Prisionero de Azkaban               | 2004         | Alfonso Cuar\cf0 \cb4 <C3><B3>\cf2 \cb3 n\
+  20 | American History X                                    | 1998         | Tony Kaye\
+  21 | 300                                                   | 2007         | Zack Snyder\
+  22 | El sexto sentido                                      | 1999         | M. Night Shyamalan\
+  23 | Pulp Fiction                                          | 1994         | Quentin Tarantino\
+  24 | V de Vendetta                                         | 2005         | James McTeigue\
+  25 | El silencio de los corderos                           | 1991         | Jonathan Demme\
+  26 | Rocky                                                 | 1976         | John G. Avildsen\
+  27 | El club de la pelea                                   | 1999         | David Fincher\
+  28 | E.T                                                   | 1982         | Steven Spielberg\
+  29 | Parque Jur\cf0 \cb4 <C3><A1>\cf2 \cb3 sico                                      | 1993         | Steven Spielberg\
+  30 | Matrix                                                | 1999         | Andy y Lana Wachowski\
+  31 | La milla verde                                        | 1999         | Frank Darabont\
+  32 | Ratatouille                                           | 2007         | Brad Bird\
+  33 | Grease                                                | 1978         | Randal Kleiser\
+  34 | El Padrino. Parte II                                  | 1974         | Francis Ford Coppola\
+  35 | Wall-E                                                | 2008         | Andrew Stanton\
+  36 | Iron Man                                              | 2008         | Jon Favreau\
+  37 | El exorcista                                          | 1973         | William Friedkin\
+  38 | Piratas del Caribe: El cofre del hombre muerto        | 2006         | Gore Verbinski\
+  39 | Seven                                                 | 1995         | David Fincher\
+  40 | Terminator 2: el juicio final                         | 1991         | James Cameron\
+  41 | El resplandor                                         | 1980         | Stanley Kubrick\
+  42 | Hombres de negro                                      | 1997         | Barry Sonnenfeld\
+  43 | Spider-Man                                            | 2002         | Sam Raimi\
+  44 | Regreso al futuro II                                  | 1989         | Robert Zemeckis\
+  45 | El show de Truman                                     | 1998         | Peter Weir\
+  46 | Toy Story 2                                           | 1999         | John Lasseter\
+  47 | Pesadilla antes de navidad                            | 1993         | Henry Selick\
+  48 | Star Wars. Episodio IV: Una nueva esperanza           | 1977         | George Lucas\
+  49 | Saw                                                   | 2004         | James Wan\
+  50 | Terminator                                            | 1984         | James Cameron\
+  51 | Kill Bill Vol. 1                                      | 2003         | Quentin Tarantino\
+  52 | Lo que el viento se llev\cf0 \cb4 <C3><B3>\cf2 \cb3                             | 1939         | Victor Fleming\
+  53 | El Laberinto del Fauno                                | 2006         | Guillermo del Toro\
+  54 | Los incre\cf0 \cb4 <C3><AD>\cf2 \cb3 bles                                       | 2004         | Brad Bird\
+  55 | El viaje de Chihiro                                   | 2001         | Hayao Miyazaki\
+  56 | El precio del poder                                   | 1983         | Brian De Palma\
+  57 | King Kong                                             | 2005         | Peter Jackson\
+  58 | Ben-Hur                                               | 1959         | William Wyler\
+  59 | Indiana Jones y la \cf0 \cb4 <C3><BA>\cf2 \cb3 ltima cruzada                    | 1989         | Steven Spielberg\
+peliculas=# \\copy reparto FROM 'modelamiento_y_gestion/reparto.csv' csv header;\
+COPY 1050\
+peliculas=# SELECT * FROM reparto;\
+ id  |           actores           \
+-----+-----------------------------\
+   1 | Robin Wright Penn\
+   1 | Gary Sinise\
+   1 | Mykelti Williamson\
+   1 | Sally Field\
+   1 | Rebecca Williams\
+   1 | Michael Conner Humphreys\
+   1 | Harold G. Herthum\
+   1 | Haley Joel Osment\
+   1 | George Kelly\
+   1 | Bob Penny\
+   1 | John Randall\
+   1 | Sam Anderson\
+   1 | Margo Moorer\
+   1 | Ione M. Telech\
+   1 | Christine Seabrook\
+   2 | Leonardo DiCaprio\
+   2 | Kate Winslet\
+   2 | Billy Zane\
+   2 | Kathy Bates\
+   2 | Frances Fisher\
+   2 | Bernard Hill\
+   2 | Jonathan Hyde\
+   2 | Danny Nucci\
+   2 | David Warner\
+   2 | Bill Paxton\
+   2 | Gloria Stuart\
+   2 | Victor Garber\
+   2 | Suzy Amis\
+   3 | Marlon Brando\
+   3 | Al Pacino\
+   3 | James Caan\
+   3 | Robert Duvall\
+   3 | Diane Keaton\
+   3 | John Cazale\
+   3 | Talia Shire\
+   3 | Richard Castellano\
+   3 | Sterling Hayden\
+   3 | Gianni Russo\
+   3 | Rudy Bond\
+   3 | John Marley\
+   3 | Richard Conte\
+   3 | Al Lettieri\
+   3 | Abe Vigoda\
+   3 | Franco Citti\
+   4 | Russell Crowe\
+   4 | Joaquin Phoenix\
+   4 | Connie Nielsen\
+   4 | Oliver Reed\
+   4 | Richard Harris\
+   4 | Derek Jacobi\
+   4 | Djimon Hounsou\
+   4 | David Schofield\
+   4 | John Shrapnel\
+   4 | Tomas Arana\
+   4 | Ralf Moeller\
+   4 | Spencer Treat Clark\
+   4 | David Hemmings\
+   4 | Tommy Flanagan\
+   4 | Sven-Ole Thorsen\
+peliculas=# \
+peliculas=# SELECT felipeletelier=# CREATE TABLE peliculas(\
+peliculas(# felipeletelier(# id INT,\
+peliculas(# felipeletelier(# pelicula VARCHAR(300),\
+peliculas(# felipeletelier(# releace_year VARCHAR(300),\
+peliculas(# felipeletelier(# director VARCHAR(300),\
+peliculas(# felipeletelier(# PRIMARY KEY (id)\
+peliculas(#                    \
+peliculas(# R\
+peliculas(# ^C\
+peliculas=# \
+peliculas=# ; \
+peliculas=# DROP TABLE reparto;\
+DROP TABLE\
+peliculas=# CREATE TABLE reparto(\
+id INT,\
+actores VARCHAR(300),\
+FOREIGN KEY(id) REFERENCES\
+peliculas(id)\
+);\
+CREATE TABLE\
+peliculas=# \\copy reparto FROM 'modelamiento_y_gestion/reparto.csv' csv;\
+COPY 1051\
+peliculas=# SELECT * FROM reparto;\
+ id  |           actores           \
+-----+-----------------------------\
+   1 | Tom Hanks\
+   1 | Robin Wright Penn\
+   1 | Gary Sinise\
+   1 | Mykelti Williamson\
+   1 | Sally Field\
+   1 | Rebecca Williams\
+   1 | Michael Conner Humphreys\
+   1 | Harold G. Herthum\
+   1 | Haley Joel Osment\
+   1 | George Kelly\
+   1 | Bob Penny\
+   1 | John Randall\
+   1 | Sam Anderson\
+   1 | Margo Moorer\
+   1 | Ione M. Telech\
+   1 | Christine Seabrook\
+   2 | Leonardo DiCaprio\
+   2 | Kate Winslet\
+   2 | Billy Zane\
+   2 | Kathy Bates\
+   2 | Frances Fisher\
+   2 | Bernard Hill\
+   2 | Jonathan Hyde\
+   2 | Danny Nucci\
+   2 | David Warner\
+   2 | Bill Paxton\
+   2 | Gloria Stuart\
+   2 | Victor Garber\
+   2 | Suzy Amis\
+   3 | Marlon Brando\
+   3 | Al Pacino\
+   3 | James Caan\
+   3 | Robert Duvall\
+   3 | Diane Keaton\
+   3 | John Cazale\
+   3 | Talia Shire\
+   3 | Richard Castellano\
+   3 | Sterling Hayden\
+   3 | Gianni Russo\
+   3 | Rudy Bond\
+   3 | John Marley\
+   3 | Richard Conte\
+   3 | Al Lettieri\
+   3 | Abe Vigoda\
+   3 | Franco Citti\
+   4 | Russell Crowe\
+   4 | Joaquin Phoenix\
+   4 | Connie Nielsen\
+   4 | Oliver Reed\
+   4 | Richard Harris\
+   4 | Derek Jacobi\
+   4 | Djimon Hounsou\
+   4 | David Schofield\
+   4 | John Shrapnel\
+   4 | Tomas Arana\
+   4 | Ralf Moeller\
+   4 | Spencer Treat Clark\
+   4 | David Hemmings\
+   4 | Tommy Flanagan\
+peliculas=# \
+peliculas=# SELECT * FROM pelicilas LEFT JOIN reparto ON id.peliculas=id.reparto WHERE id IS 2;\
+ERROR:  syntax error at or near "2"\
+LINE 1: ... LEFT JOIN reparto ON id.peliculas=id.reparto WHERE id IS 2;\
+                                                                     ^\
+peliculas=# SELECT * FROM pelicilas LEFT JOIN reparto ON id.peliculas=id.reparto WHERE id IS 2 ORDER BY actores;\
+ERROR:  syntax error at or near "2"\
+LINE 1: ...IN reparto ON id.peliculas=id.reparto WHERE id IS 2 ORDER BY...\
+                                                             ^\
+peliculas=# SELECT * FROM pelicilas LEFT JOIN reparto ON id.peliculas=id.reparto WHERE id=2 ORDER BY actores;\
+ERROR:  relation "pelicilas" does not exist\
+LINE 1: SELECT * FROM pelicilas LEFT JOIN reparto ON id.peliculas=id...\
+                      ^\
+peliculas=# SELECT * FROM peliculas LEFT JOIN reparto ON id.peliculas=id.reparto WHERE id=2 ORDER BY actores;\
+ERROR:  missing FROM-clause entry for table "id"\
+LINE 1: SELECT * FROM peliculas LEFT JOIN reparto ON id.peliculas=id...\
+                                                     ^\
+peliculas=# SELECT * FROM peliculas LEFT JOIN reparto ON id.peliculas=id.reparto WHERE id.peliculas=2 ORDER BY actores;\
+ERROR:  missing FROM-clause entry for table "id"\
+LINE 1: SELECT * FROM peliculas LEFT JOIN reparto ON id.peliculas=id...\
+                                                     ^\
+peliculas=# SELECT * FROM peliculas LEFT JOIN reparto ON peliculas.id=reparto.id WHERE id=2 ORDER BY actores;\
+ERROR:  column reference "id" is ambiguous\
+LINE 1: ...EFT JOIN reparto ON peliculas.id=reparto.id WHERE id=2 ORDER...\
+                                                             ^\
+peliculas=# SELECT * FROM peliculas LEFT JOIN reparto ON peliculas.id=reparto.id WHERE reparto.id=2 ORDER BY actores;\
+ id | pelicula | releace_year |   director    | id |      actores      \
+----+----------+--------------+---------------+----+-------------------\
+  2 | Titanic  | 1997         | James Cameron |  2 | Bernard Hill\
+  2 | Titanic  | 1997         | James Cameron |  2 | Bill Paxton\
+  2 | Titanic  | 1997         | James Cameron |  2 | Billy Zane\
+  2 | Titanic  | 1997         | James Cameron |  2 | Danny Nucci\
+  2 | Titanic  | 1997         | James Cameron |  2 | David Warner\
+  2 | Titanic  | 1997         | James Cameron |  2 | Frances Fisher\
+  2 | Titanic  | 1997         | James Cameron |  2 | Gloria Stuart\
+  2 | Titanic  | 1997         | James Cameron |  2 | Jonathan Hyde\
+  2 | Titanic  | 1997         | James Cameron |  2 | Kate Winslet\
+  2 | Titanic  | 1997         | James Cameron |  2 | Kathy Bates\
+  2 | Titanic  | 1997         | James Cameron |  2 | Leonardo DiCaprio\
+  2 | Titanic  | 1997         | James Cameron |  2 | Suzy Amis\
+  2 | Titanic  | 1997         | James Cameron |  2 | Victor Garber\
+(13 rows)\
+\
+peliculas=#   2 | Titanic  | 1997         | James Cameron |  2 | Billy Zane\
+peliculas-#   2 | Titanic  | 1997         | James Cameron |  2 | Danny Nucci\
+peliculas-# SELECT pelicula,releace_year,director,actores FROM peliculas LEFT JOIN reparto ON peliculas.=reparto.id WHERE reparto.id=2 ORDER BY actores;\
+ERROR:  syntax error at or near "2"\
+LINE 1: 2 | Titanic  | 1997         | James Cameron |  2 | Billy Zan...\
+        ^\
+peliculas=#   2 | Titanic  | 1997         | James Cameron |  2 | Billy Zane\
+  2 | Titanic  | 1997         | James Cameron |  2 | Danny Nucci\
+SELECT pelicula,releace_year,director,actores FROM peliculas LEFT JOIN reparto ON peliculas.=reparto.id WHERE reparto.id=2;\
+ERROR:  syntax error at or near "2"\
+LINE 1: 2 | Titanic  | 1997         | James Cameron |  2 | Billy Zan...\
+        ^\
+peliculas=#   2 | Titanic  | 1997         | James Cameron |  2 | Billy Zane\
+  2 | Titanic  | 1997         | James Cameron |  2 | Danny Nucci\
+SELECT pelicula,releace_year,director,actores FROM peliculas LEFT JOIN reparto ON peliculas.id=reparto.id WHERE reparto.id=2;\
+ERROR:  syntax error at or near "2"\
+LINE 1: 2 | Titanic  | 1997         | James Cameron |  2 | Billy Zan...\
+        ^\
+peliculas=#   2 | Titanic  | 1997         | James Cameron |  2 | Billy Zane\
+  2 | Titanic  | 1997         | James Cameron |  2 | Danny Nucci\
+SELECT pelicula,releace_year,director,actores FROM peliculas LEFT JOIN reparto ON peliculas.id=reparto.id WHERE reparto.id=2;SELECT pelicula,releace_year,director,actores FROM peliculas LEFT JOIN reparto ON peliculas.id=reparto.id WHERE reparto.id=2 ORDER BY actores;\
+ERROR:  syntax error at or near "2"\
+LINE 1: 2 | Titanic  | 1997         | James Cameron |  2 | Billy Zan...\
+        ^\
+ pelicula | releace_year |   director    |      actores      \
+----------+--------------+---------------+-------------------\
+ Titanic  | 1997         | James Cameron | Bernard Hill\
+ Titanic  | 1997         | James Cameron | Bill Paxton\
+ Titanic  | 1997         | James Cameron | Billy Zane\
+ Titanic  | 1997         | James Cameron | Danny Nucci\
+ Titanic  | 1997         | James Cameron | David Warner\
+ Titanic  | 1997         | James Cameron | Frances Fisher\
+ Titanic  | 1997         | James Cameron | Gloria Stuart\
+ Titanic  | 1997         | James Cameron | Jonathan Hyde\
+ Titanic  | 1997         | James Cameron | Kate Winslet\
+ Titanic  | 1997         | James Cameron | Kathy Bates\
+ Titanic  | 1997         | James Cameron | Leonardo DiCaprio\
+ Titanic  | 1997         | James Cameron | Suzy Amis\
+ Titanic  | 1997         | James Cameron | Victor Garber\
+(13 rows)\
+\
+peliculas=# SECT pelicula,actores FROM pelicula LEFT JOIN reparto ON peliculas.id=reparto.id WHERE reparto.actores='Harrison Ford';\
+ERROR:  syntax error at or near "SECT"\
+LINE 1: SECT pelicula,actores FROM pelicula LEFT JOIN reparto ON pel...\
+        ^\
+peliculas=# SELECT pelicula,actores FROM pelicula LEFT JOIN reparto ON peliculas.id=reparto.id WHERE reparto.actores='Harrison Ford';\
+ERROR:  relation "pelicula" does not exist\
+LINE 1: SELECT pelicula,actores FROM pelicula LEFT JOIN reparto ON p...\
+                                     ^\
+peliculas=# SELECT pelicula,actores FROM peliculas LEFT JOIN reparto ON peliculas.id=reparto.id WHERE reparto.actores='Harrison Ford';\
+                   pelicula                    |    actores    \
+-----------------------------------------------+---------------\
+ Star Wars. Episodio IV: Una nueva esperanza   | Harrison Ford\
+ Indiana Jones y la \'faltima cruzada            | Harrison Ford\
+ En busca del arca perdida                     | Harrison Ford\
+ Star Wars. Episodio V: El imperio contraataca | Harrison Ford\
+ Star Wars. Episodio VI: El retorno del Jedi   | Harrison Ford\
+ Blade Runner                                  | Harrison Ford\
+ Apocalypse Now                                | Harrison Ford\
+ Indiana Jones y el templo maldito             | Harrison Ford\
+(8 rows)\
+\
+peliculas=# SELECT actores, count(*) FROM peliculas;                \
+ERROR:  column "actores" does not exist\
+LINE 1: SELECT actores, count(*) FROM peliculas;\
+               ^\
+peliculas=# SELECT actores, count(*) FROM reparto;\
+ERROR:  column "reparto.actores" must appear in the GROUP BY clause or be used in an aggregate function\
+LINE 1: SELECT actores, count(*) FROM reparto;\
+               ^\
+peliculas=# SELECT actores, count(*) FROM reparto GROUP BY actrores;\
+ERROR:  column "actrores" does not exist\
+LINE 1: SELECT actores, count(*) FROM reparto GROUP BY actrores;\
+                                                       ^\
+HINT:  Perhaps you meant to reference the column "reparto.actores".\
+peliculas=# SELECT actores, count(*) FROM reparto GROUP BY actores;\
+           actores           | count \
+-----------------------------+-------\
+ Ken Watanabe                |     1\
+ Doug Jones                  |     1\
+ R. Lee Ermey                |     2\
+ Clem Caserta                |     1\
+ Robert Loggia               |     1\
+ Matt Damon                  |     3\
+ Rachel Singer               |     1\
+ Bruce Campbell              |     2\
+ Zoe Saldana                 |     1\
+ Will Smith                  |     1\
+ Jamie Waylett               |     1\
+ Bernard Hill                |     3\
+ Maurice Evans               |     1\
+ Danny Glover                |     1\
+ Ric Young                   |     1\
+ Artus de Penguern           |     1\
+ Greg Kinnear                |     1\
+ Frederic Forrest            |     1\
+ Kevin R. McNally            |     1\
+ Clotilde Mollet             |     1\
+ Ray Woolf                   |     1\
+ Scott Glenn                 |     1\
+ Harvey Keitel               |     2\
+ Robert Duvall               |     3\
+ Marianna Hill               |     1\
+ Jonathan Ke Quan            |     1\
+ John Rhys-Davies            |     5\
+ Emily Da le                 |     1\
+ Allison Janney              |     1\
+ Michael Emerson             |     1\
+ Ted Levine                  |     1\
+ Robert Oliveri              |     1\
+ Bo Svenson                  |     1\
+ Cillian Murphy              |     2\
+ Eric Roberts                |     1\
+ Kim Hunter                  |     1\
+ Rip Torn                    |     1\
+ Sam Bottoms                 |     1\
+ Arliss Howard               |     1\
+ Harold Ramis                |     2\
+ Sylvester Stallone          |     2\
+ James Marsden               |     1\
+ Chris Isaak                 |     1\
+ Tim Roth                    |     1\
+ Nathan Gamble               |     1\
+ Billy Zane                  |     3\
+ Dina Meyer                  |     1\
+ Edward James Olmos          |     1\
+ Sal L\cf0 \cb4 <C3><B3>\cf2 \cb3 pez            |     1\
+ Shauna Kain                 |     1\
+ Evan Parke                  |     1\
+ Edward Furlong              |     2\
+ Kirsten Dunst               |     3\
+ Richard Schiff              |     1\
+ Dennis Farina               |     1\
+ Oliver Reed                 |     1\
+ Amrish Puri                 |     1\
+ Scott Bakula                |     1\
+ Ritchie Coster              |     1\
+peliculas=# \
+\
+Son 831 \
+\
+peliculas=# SELECT releace_year FROM peliculas WHERE releace_year BETWEEN '1990' AND '1999'  ORDER BY pelicula ASC; releace_year \
+--------------\
+ 1999\
+ 1998\
+ 1995\
+ 1994\
+ 1990\
+ 1990\
+ 1999\
+ 1994\
+ 1999\
+ 1998\
+ 1991\
+ 1994\
+ 1994\
+ 1997\
+ 1993\
+ 1999\
+ 1999\
+ 1997\
+ 1993\
+ 1993\
+ 1994\
+ 1998\
+ 1995\
+ 1999\
+ 1991\
+ 1997\
+ 1995\
+ 1999\
+ 1996\
+ 1990\
+(30 rows)\
+\
+peliculas=# SELECT releace_year,pelicula FROM peliculas WHERE releace_year BETWEEN '1990' AND '1999'  ORDER BY pelicula ASC;\
+ releace_year |                  pelicula                  \
+--------------+--------------------------------------------\
+ 1999         | American Beauty\
+ 1998         | American History X\
+ 1995         | Braveheart\
+ 1994         | Cadena perpetua\
+ 1990         | Eduardo Manostijeras\
+ 1990         | El Padrino. Parte III\
+ 1999         | El club de la pelea\
+ 1994         | El profesional\
+ 1999         | El sexto sentido\
+ 1998         | El show de Truman\
+ 1991         | El silencio de los corderos\
+ 1994         | Entrevista con el vampiro\
+ 1994         | Forest Gump\
+ 1997         | Hombres de negro\
+ 1993         | La lista de Schindler\
+ 1999         | La milla verde\
+ 1999         | Matrix\
+ 1997         | Mejor... imposible\
+ 1993         | Parque Jur\'e1sico\
+ 1993         | Pesadilla antes de navidad\
+ 1994         | Pulp Fiction\
+ 1998         | Salvar al soldado Ryan\
+ 1995         | Seven\
+ 1999         | Star Wars. Episodio I: La amenaza fantasma\
+ 1991         | Terminator 2: el juicio final\
+ 1997         | Titanic\
+ 1995         | Toy Story\
+ 1999         | Toy Story 2\
+ 1996         | Trainspotting\
+ 1990         | Uno de los nuestros\
+(30 rows)\
+\
+peliculas=# \
+peliculas=# SELECT releace_year,pelicula,actores FROM peliculas LEFT JOIN reparto ON peliculas.id=reparto.id WHERE peliculas.releace_year='2001';\
+ releace_year |                     pelicula                      |      actores      \
+--------------+---------------------------------------------------+-------------------\
+ 2001         | El Se\'f1or de los anillos: La comunidad del anillo | Elijah Wood\
+ 2001         | El Se\'f1or de los anillos: La comunidad del anillo | Ian McKellen\
+ 2001         | El Se\'f1or de los anillos: La comunidad del anillo | Viggo Mortensen\
+ 2001         | El Se\'f1or de los anillos: La comunidad del anillo | Sean Astin\
+ 2001         | El Se\'f1or de los anillos: La comunidad del anillo | Sean Bean\
+ 2001         | El Se\'f1or de los anillos: La comunidad del anillo | Cate Blanchett\
+ 2001         | El Se\'f1or de los anillos: La comunidad del anillo | Hugo Weaving\
+ 2001         | El Se\'f1or de los anillos: La comunidad del anillo | Liv Tyler\
+ 2001         | El Se\'f1or de los anillos: La comunidad del anillo | Ian Holm\
+ 2001         | El Se\'f1or de los anillos: La comunidad del anillo | Christopher Lee\
+ 2001         | El Se\'f1or de los anillos: La comunidad del anillo | John Rhys-Davies\
+ 2001         | El Se\'f1or de los anillos: La comunidad del anillo | Orlando Bloom\
+ 2001         | El Se\'f1or de los anillos: La comunidad del anillo | Dominic Monaghan\
+ 2001         | El Se\'f1or de los anillos: La comunidad del anillo | Billy Boyd\
+ 2001         | El Se\'f1or de los anillos: La comunidad del anillo | Lawrence Makoare\
+ 2001         | El Se\'f1or de los anillos: La comunidad del anillo | Craig Parker\
+ 2001         | El Se\'f1or de los anillos: La comunidad del anillo | Marton Csokas\
+ 2001         | El Se\'f1or de los anillos: La comunidad del anillo | Andy Serkis\
+ 2001         | Monstruos S.A.                                   | Animada\
+ 2001         | El viaje de Chihiro                              | Animada\
+ 2001         | Am\'e9lie                                           | Audrey Tautou\
+ 2001         | Am\'e9lie                                           | Mathieu Kassovitz\
+ 2001         | Am\'e9lie                                           | Rufus\
+ 2001         | Am\'e9lie                                           | Lorella Cravotta\
+ 2001         | Am\'e9lie                                           | Serge Merlin\
+ 2001         | Am\'e9lie                                           | Jamel Debbouze\
+ 2001         | Am\'e9lie                                           | Claire Maurier\
+ 2001         | Am\'e9lie                                           | Clotilde Mollet\
+ 2001         | Am\'e9lie                                           | Isabelle Nanty\
+ 2001         | Am\'e9lie                                           | Dominique Pinon\
+ 2001         | Am\'e9lie                                           | Artus de Penguern\
+ 2001         | Am\'e9lie                                           | Yolande Moreau\
+ 2001         | Am\'e9lie                                           | Urbain Cancelier\
+ 2001         | Am\'e9lie                                           | Maurice Benichou\
+ 2001         | Ocean's Eleven                                   | George Clooney\
+ 2001         | Ocean's Eleven                                   | Julia Roberts\
+ 2001         | Ocean's Eleven                                   | Matt Damon\
+ 2001         | Ocean's Eleven                                   | Andy Garc\'eda\
+ 2001         | Ocean's Eleven                                   | Brad Pitt\
+ 2001         | Ocean's Eleven                                   | Casey Affleck\
+ 2001         | Ocean's Eleven                                   | Scott Caan\
+ 2001         | Ocean's Eleven                                   | Elliott Gould\
+ 2001         | Ocean's Eleven                                   | Bernie Mac\
+ 2001         | Ocean's Eleven                                   | Carl Reiner\
+ 2001         | Ocean's Eleven                                   | Don Cheadle\
+ 2001         | Ocean's Eleven                                   | Topher Grace\
+ 2001         | Ocean's Eleven                                   | Joshua Jackson\
+ 2001         | Ocean's Eleven                                   | Holly Marie Combs\
+ 2001         | Ocean's Eleven                                   | Shane West\
+ 2001         | Mouling Rouge                                    | Nicole Kidman\
+ 2001         | Mouling Rouge                                    | Ewan McGregor\
+ 2001         | Mouling Rouge                                    | John Leguizamo\
+ 2001         | Mouling Rouge                                    | Jim Broadbent\
+ 2001         | Mouling Rouge                                    | Richard Roxburgh\
+ 2001         | Mouling Rouge                                    | David Wenham\
+ 2001         | Mouling Rouge                                    | Jacek Koman\
+ 2001         | Mouling Rouge                                    | Kylie Minogue\
+(57 rows)\
+\
+peliculas=#\
+peliculas=# ALTER TABLE peliculas              \
+peliculas-# ALTER COLUMN releace_year SET DATA TYPE INT;\
+ERROR:  column "releace_year" cannot be cast automatically to type integer\
+HINT:  You might need to specify "USING releace_year::integer".\
+peliculas=# ALTER TABLE peliculas                                                                                  ALTER COLUMN releace_year TYPE INT USING releace_year::integer;\
+ALTER TABLE\
+peliculas=# \
+
+peliculas=# SELECT MAX(releace_year) FROM peliculas; 
+ max  
+------
+ 2008
+(1 row)
+
+INSTRUCCION 6 DEL EJERCICIO
+
+peliculas=# SELECT director, count(*) FROM peliculas GROUP BY director LIMIT(10);
+      director       | count 
+---------------------+-------
+ Randal Kleiser      |     1
+ Tony Kaye           |     1
+ David Hand          |     1
+ Henry Selick        |     1
+ Steven Spielberg    |     9
+ Quentin Tarantino   |     3
+ Frank Darabont      |     2
+ Ted Kotcheff        |     1
+ John Lasseter       |     2
+ Wolfgang Reitherman |     1
+(10 rows)
+
+peliculas=# SELECT director, count(*) FROM peliculas GROUP BY (director) ORDER BY COUNT(director) LIMIT(10);
+      director       | count 
+---------------------+-------
+ Jonathan Demme      |     1
+ Luc Besson          |     1
+ Randal Kleiser      |     1
+ Tony Kaye           |     1
+ David Hand          |     1
+ John McTiernan      |     1
+ Ted Kotcheff        |     1
+ Henry Selick        |     1
+ Wolfgang Reitherman |     1
+ Jean-Pierre Jeunet  |     1
+(10 rows)
+
+peliculas=# SELECT director, count(*) FROM peliculas GROUP BY (director) ORDER BY COUNT(director) DESC LIMIT(10);
+       director       | count 
+----------------------+-------
+ Steven Spielberg     |     9
+ Francis Ford Coppola |     4
+ Peter Jackson        |     4
+ Quentin Tarantino    |     3
+ Martin Scorsese      |     3
+ Robert Zemeckis      |     3
+ James Cameron        |     3
+ Ridley Scott         |     3
+ George Lucas         |     3
+ Frank Darabont       |     2
+(10 rows)
+
+peliculas=# 
+
+
+INSTRUCCION 10 DEL EJERCICIO
+
+
+eliculas=# SELECT MAX(releace_year) FROM peliculas LEFT JOIN reparto ON peliculas.id=reparto.id LIMIT(10);       
+ max  
+------
+ 2008
+(1 row)
+
+peliculas=# SELECT MAX(releace_year) FROM peliculas LEFT JOIN reparto ON peliculas.id=reparto.id WHERE reparto.actores=reparto.actores LIMIT(1);
+ max  
+------
+ 2008
+(1 row)
+
+peliculas=# SELECT actores,pelicula FROM peliculas LEFT JOIN reparto ON peliculas.id=reparto.id WHERE peliculas.pelicula='Iron Man';
+      actores      | pelicula 
+-------------------+----------
+ Robert Downey Jr. | Iron Man
+ Terrence Howard   | Iron Man
+ Gwyneth Paltrow   | Iron Man
+ Jeff Bridges      | Iron Man
+ Stan Lee          | Iron Man
+ Leslie Bibb       | Iron Man
+ Clark Gregg       | Iron Man
+ Shaun Toub        | Iron Man
+ Faran Tahir       | Iron Man
+ Samuel L. Jackson | Iron Man
+(10 rows)
+
+peliculas=# 
+
