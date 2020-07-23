@@ -693,3 +693,12 @@ peliculas=# SELECT actores,pelicula FROM peliculas LEFT JOIN reparto ON pelicula
 
 peliculas=# 
 
+
+INSTRUCCION 7 SEGUN CLASES:
+
+peliculas=# SELECT COUNT(DISTINCT actores) FROM reparto;
+ count 
+-------
+   831
+(1 row)
+
