@@ -1,12 +1,6 @@
-felipeletelier=# CREATE DATABASE peliculas;\
+1._felipeletelier=# CREATE DATABASE peliculas;\
 CREATE DATABASE\
-felipeletelier=# CREATE TABLE peliculas(\
-felipeletelier(# id INT;\
-felipeletelier(# DFWEF\
-felipeletelier(# );\
-ERROR:  syntax error at or near ";"\
-LINE 2: id INT;\
-              ^\
+        
 felipeletelier=# CREATE TABLE peliculas(\
 felipeletelier(# id INT,\
 felipeletelier(# pelicula VARCHAR(300),\
@@ -26,9 +20,11 @@ felipeletelier=# DROP TABLE reparto;\
 DROP TABLE\
 felipeletelier=# DROP TABLE peliculas;\
 DROP TABLE\
+
 felipeletelier=# \\c peliculas;\
 You are now connected to database "peliculas" as user "felipeletelier".\
-peliculas=# CREATE TABLE peliculas(\
+
+2.-peliculas=# CREATE TABLE peliculas(\
 peliculas(# id INT,\
 peliculas(# pelicula VARCHAR(300),\
 peliculas(# releace_year VARCHAR(300),\
@@ -36,38 +32,15 @@ peliculas(# director VARCHAR(300),\
 peliculas(# PRIMARY KEY(id)\
 peliculas(# );\
 CREATE TABLE\
-peliculas=# CREATE TABLE reparto(\
+2.-peliculas=# CREATE TABLE reparto(\
 peliculas(# id INT,\
 peliculas(# actores VARCHAR(300),\
 peliculas(# FOREIGN KEY(id) REFERENCES\
 peliculas(# peliculas(id)\
 peliculas(# );\
 CREATE TABLE\
-peliculas=# \\copy peliculas FROM'peliculas.csv' csv header;\
-\\copy: parse error at "FROM'peliculas"\
-peliculas=# \\copy peliculas FROM'peliculas.csv' csv [header];\
-\\copy: parse error at "FROM'peliculas"\
-peliculas=# \\copy peliculas FROM'peliculas.csv' csv header;  \
-\\copy: parse error at "FROM'peliculas"\
-peliculas=# \\q\
-(base) felipes-MacBook-Air:modelamiento_y_gestion felipeletelier$ cd\
-(base) felipes-MacBook-Air:~ felipeletelier$ cd Dektop\
--bash: cd: Dektop: No such file or directory\
-(base) felipes-MacBook-Air:~ felipeletelier$ ls       \
-Applications	Documents	Library		Music		Postman		Public		anaconda3\
-Desktop		Downloads	Movies		Pictures	Projects	Untitled.ipynb	dumpall.sql\
-(base) felipes-MacBook-Air:~ felipeletelier$ cd Desktop/\
-(base) felipes-MacBook-Air:Desktop felipeletelier$ psql\
-psql (12.3)\
-Type "help" for help.\
-\
-felipeletelier=# \\c peliculas\
-You are now connected to database "peliculas" as user "felipeletelier".\
-peliculas=# \\copy peliculas FROM '/modelamiento_y_gestion/peliculas.csv' csv header;\
-/modelamiento_y_gestion/peliculas.csv: No such file or directory\
-peliculas=# \\copy peliculas FROM 'Desktop/modelamiento_y_gestion/peliculas.csv' csv header;\
-Desktop/modelamiento_y_gestion/peliculas.csv: No such file or directory\
-peliculas=# \\copy peliculas FROM 'modelamiento_y_gestion/peliculas.csv' csv header;\
+
+3.-peliculas=# \\copy peliculas FROM 'modelamiento_y_gestion/peliculas.csv' csv header;\
 COPY 100\
 peliculas=# SELECT * FROM peliculas;\
  id  |                       pelicula                        | releace_year |       director        \
@@ -131,7 +104,7 @@ peliculas=# SELECT * FROM peliculas;\
   57 | King Kong                                             | 2005         | Peter Jackson\
   58 | Ben-Hur                                               | 1959         | William Wyler\
   59 | Indiana Jones y la \cf0 \cb4 <C3><BA>\cf2 \cb3 ltima cruzada                    | 1989         | Steven Spielberg\
-peliculas=# \\copy reparto FROM 'modelamiento_y_gestion/reparto.csv' csv header;\
+3.- peliculas=# \\copy reparto FROM 'modelamiento_y_gestion/reparto.csv' csv header;\
 COPY 1050\
 peliculas=# SELECT * FROM reparto;\
  id  |           actores           \
@@ -280,32 +253,9 @@ peliculas=# SELECT * FROM reparto;\
    4 | Spencer Treat Clark\
    4 | David Hemmings\
    4 | Tommy Flanagan\
-peliculas=# \
-peliculas=# SELECT * FROM pelicilas LEFT JOIN reparto ON id.peliculas=id.reparto WHERE id IS 2;\
-ERROR:  syntax error at or near "2"\
-LINE 1: ... LEFT JOIN reparto ON id.peliculas=id.reparto WHERE id IS 2;\
-                                                                     ^\
-peliculas=# SELECT * FROM pelicilas LEFT JOIN reparto ON id.peliculas=id.reparto WHERE id IS 2 ORDER BY actores;\
-ERROR:  syntax error at or near "2"\
-LINE 1: ...IN reparto ON id.peliculas=id.reparto WHERE id IS 2 ORDER BY...\
-                                                             ^\
-peliculas=# SELECT * FROM pelicilas LEFT JOIN reparto ON id.peliculas=id.reparto WHERE id=2 ORDER BY actores;\
-ERROR:  relation "pelicilas" does not exist\
-LINE 1: SELECT * FROM pelicilas LEFT JOIN reparto ON id.peliculas=id...\
-                      ^\
-peliculas=# SELECT * FROM peliculas LEFT JOIN reparto ON id.peliculas=id.reparto WHERE id=2 ORDER BY actores;\
-ERROR:  missing FROM-clause entry for table "id"\
-LINE 1: SELECT * FROM peliculas LEFT JOIN reparto ON id.peliculas=id...\
-                                                     ^\
-peliculas=# SELECT * FROM peliculas LEFT JOIN reparto ON id.peliculas=id.reparto WHERE id.peliculas=2 ORDER BY actores;\
-ERROR:  missing FROM-clause entry for table "id"\
-LINE 1: SELECT * FROM peliculas LEFT JOIN reparto ON id.peliculas=id...\
-                                                     ^\
-peliculas=# SELECT * FROM peliculas LEFT JOIN reparto ON peliculas.id=reparto.id WHERE id=2 ORDER BY actores;\
-ERROR:  column reference "id" is ambiguous\
-LINE 1: ...EFT JOIN reparto ON peliculas.id=reparto.id WHERE id=2 ORDER...\
-                                                             ^\
-peliculas=# SELECT * FROM peliculas LEFT JOIN reparto ON peliculas.id=reparto.id WHERE reparto.id=2 ORDER BY actores;\
+
+                                                 
+4.-peliculas=# SELECT * FROM peliculas LEFT JOIN reparto ON peliculas.id=reparto.id WHERE reparto.id=2 ORDER BY actores;\
  id | pelicula | releace_year |   director    | id |      actores      \
 ----+----------+--------------+---------------+----+-------------------\
   2 | Titanic  | 1997         | James Cameron |  2 | Bernard Hill\
@@ -322,57 +272,9 @@ peliculas=# SELECT * FROM peliculas LEFT JOIN reparto ON peliculas.id=reparto.id
   2 | Titanic  | 1997         | James Cameron |  2 | Suzy Amis\
   2 | Titanic  | 1997         | James Cameron |  2 | Victor Garber\
 (13 rows)\
-\
-peliculas=#   2 | Titanic  | 1997         | James Cameron |  2 | Billy Zane\
-peliculas-#   2 | Titanic  | 1997         | James Cameron |  2 | Danny Nucci\
-peliculas-# SELECT pelicula,releace_year,director,actores FROM peliculas LEFT JOIN reparto ON peliculas.=reparto.id WHERE reparto.id=2 ORDER BY actores;\
-ERROR:  syntax error at or near "2"\
-LINE 1: 2 | Titanic  | 1997         | James Cameron |  2 | Billy Zan...\
-        ^\
-peliculas=#   2 | Titanic  | 1997         | James Cameron |  2 | Billy Zane\
-  2 | Titanic  | 1997         | James Cameron |  2 | Danny Nucci\
-SELECT pelicula,releace_year,director,actores FROM peliculas LEFT JOIN reparto ON peliculas.=reparto.id WHERE reparto.id=2;\
-ERROR:  syntax error at or near "2"\
-LINE 1: 2 | Titanic  | 1997         | James Cameron |  2 | Billy Zan...\
-        ^\
-peliculas=#   2 | Titanic  | 1997         | James Cameron |  2 | Billy Zane\
-  2 | Titanic  | 1997         | James Cameron |  2 | Danny Nucci\
-SELECT pelicula,releace_year,director,actores FROM peliculas LEFT JOIN reparto ON peliculas.id=reparto.id WHERE reparto.id=2;\
-ERROR:  syntax error at or near "2"\
-LINE 1: 2 | Titanic  | 1997         | James Cameron |  2 | Billy Zan...\
-        ^\
-peliculas=#   2 | Titanic  | 1997         | James Cameron |  2 | Billy Zane\
-  2 | Titanic  | 1997         | James Cameron |  2 | Danny Nucci\
-SELECT pelicula,releace_year,director,actores FROM peliculas LEFT JOIN reparto ON peliculas.id=reparto.id WHERE reparto.id=2;SELECT pelicula,releace_year,director,actores FROM peliculas LEFT JOIN reparto ON peliculas.id=reparto.id WHERE reparto.id=2 ORDER BY actores;\
-ERROR:  syntax error at or near "2"\
-LINE 1: 2 | Titanic  | 1997         | James Cameron |  2 | Billy Zan...\
-        ^\
- pelicula | releace_year |   director    |      actores      \
-----------+--------------+---------------+-------------------\
- Titanic  | 1997         | James Cameron | Bernard Hill\
- Titanic  | 1997         | James Cameron | Bill Paxton\
- Titanic  | 1997         | James Cameron | Billy Zane\
- Titanic  | 1997         | James Cameron | Danny Nucci\
- Titanic  | 1997         | James Cameron | David Warner\
- Titanic  | 1997         | James Cameron | Frances Fisher\
- Titanic  | 1997         | James Cameron | Gloria Stuart\
- Titanic  | 1997         | James Cameron | Jonathan Hyde\
- Titanic  | 1997         | James Cameron | Kate Winslet\
- Titanic  | 1997         | James Cameron | Kathy Bates\
- Titanic  | 1997         | James Cameron | Leonardo DiCaprio\
- Titanic  | 1997         | James Cameron | Suzy Amis\
- Titanic  | 1997         | James Cameron | Victor Garber\
-(13 rows)\
-\
-peliculas=# SECT pelicula,actores FROM pelicula LEFT JOIN reparto ON peliculas.id=reparto.id WHERE reparto.actores='Harrison Ford';\
-ERROR:  syntax error at or near "SECT"\
-LINE 1: SECT pelicula,actores FROM pelicula LEFT JOIN reparto ON pel...\
-        ^\
-peliculas=# SELECT pelicula,actores FROM pelicula LEFT JOIN reparto ON peliculas.id=reparto.id WHERE reparto.actores='Harrison Ford';\
-ERROR:  relation "pelicula" does not exist\
-LINE 1: SELECT pelicula,actores FROM pelicula LEFT JOIN reparto ON p...\
-                                     ^\
-peliculas=# SELECT pelicula,actores FROM peliculas LEFT JOIN reparto ON peliculas.id=reparto.id WHERE reparto.actores='Harrison Ford';\
+
+
+5.-peliculas=# SELECT pelicula,actores FROM peliculas LEFT JOIN reparto ON peliculas.id=reparto.id WHERE reparto.actores='Harrison Ford';\
                    pelicula                    |    actores    \
 -----------------------------------------------+---------------\
  Star Wars. Episodio IV: Una nueva esperanza   | Harrison Ford\
@@ -385,20 +287,8 @@ peliculas=# SELECT pelicula,actores FROM peliculas LEFT JOIN reparto ON pelicula
  Indiana Jones y el templo maldito             | Harrison Ford\
 (8 rows)\
 \
-peliculas=# SELECT actores, count(*) FROM peliculas;                \
-ERROR:  column "actores" does not exist\
-LINE 1: SELECT actores, count(*) FROM peliculas;\
-               ^\
-peliculas=# SELECT actores, count(*) FROM reparto;\
-ERROR:  column "reparto.actores" must appear in the GROUP BY clause or be used in an aggregate function\
-LINE 1: SELECT actores, count(*) FROM reparto;\
-               ^\
-peliculas=# SELECT actores, count(*) FROM reparto GROUP BY actrores;\
-ERROR:  column "actrores" does not exist\
-LINE 1: SELECT actores, count(*) FROM reparto GROUP BY actrores;\
-                                                       ^\
-HINT:  Perhaps you meant to reference the column "reparto.actores".\
-peliculas=# SELECT actores, count(*) FROM reparto GROUP BY actores;\
+
+7.-peliculas=# SELECT actores, count(*) FROM reparto GROUP BY actores;\
            actores           | count \
 -----------------------------+-------\
  Ken Watanabe                |     1\
@@ -464,7 +354,7 @@ peliculas=# \
 \
 Son 831 \
 \
-peliculas=# SELECT releace_year FROM peliculas WHERE releace_year BETWEEN '1990' AND '1999'  ORDER BY pelicula ASC; releace_year \
+8.-peliculas=# SELECT releace_year FROM peliculas WHERE releace_year BETWEEN '1990' AND '1999'  ORDER BY pelicula ASC; releace_year \
 --------------\
  1999\
  1998\
@@ -498,7 +388,7 @@ peliculas=# SELECT releace_year FROM peliculas WHERE releace_year BETWEEN '1990'
  1990\
 (30 rows)\
 \
-peliculas=# SELECT releace_year,pelicula FROM peliculas WHERE releace_year BETWEEN '1990' AND '1999'  ORDER BY pelicula ASC;\
+8.-peliculas=# SELECT releace_year,pelicula FROM peliculas WHERE releace_year BETWEEN '1990' AND '1999'  ORDER BY pelicula ASC;\
  releace_year |                  pelicula                  \
 --------------+--------------------------------------------\
  1999         | American Beauty\
@@ -534,7 +424,7 @@ peliculas=# SELECT releace_year,pelicula FROM peliculas WHERE releace_year BETWE
 (30 rows)\
 \
 peliculas=# \
-peliculas=# SELECT releace_year,pelicula,actores FROM peliculas LEFT JOIN reparto ON peliculas.id=reparto.id WHERE peliculas.releace_year='2001';\
+9.-peliculas=# SELECT releace_year,pelicula,actores FROM peliculas LEFT JOIN reparto ON peliculas.id=reparto.id WHERE peliculas.releace_year='2001';\
  releace_year |                     pelicula                      |      actores      \
 --------------+---------------------------------------------------+-------------------\
  2001         | El Se\'f1or de los anillos: La comunidad del anillo | Elijah Wood\
@@ -596,24 +486,11 @@ peliculas=# SELECT releace_year,pelicula,actores FROM peliculas LEFT JOIN repart
  2001         | Mouling Rouge                                    | Kylie Minogue\
 (57 rows)\
 \
-peliculas=#\
-peliculas=# ALTER TABLE peliculas              \
-peliculas-# ALTER COLUMN releace_year SET DATA TYPE INT;\
-ERROR:  column "releace_year" cannot be cast automatically to type integer\
-HINT:  You might need to specify "USING releace_year::integer".\
-peliculas=# ALTER TABLE peliculas                                                                                  ALTER COLUMN releace_year TYPE INT USING releace_year::integer;\
-ALTER TABLE\
-peliculas=# \
 
-peliculas=# SELECT MAX(releace_year) FROM peliculas; 
- max  
-------
- 2008
-(1 row)
 
 INSTRUCCION 6 DEL EJERCICIO
 
-peliculas=# SELECT director, count(*) FROM peliculas GROUP BY director LIMIT(10);
+6.-peliculas=# SELECT director, count(*) FROM peliculas GROUP BY director LIMIT(10);
       director       | count 
 ---------------------+-------
  Randal Kleiser      |     1
@@ -628,22 +505,8 @@ peliculas=# SELECT director, count(*) FROM peliculas GROUP BY director LIMIT(10)
  Wolfgang Reitherman |     1
 (10 rows)
 
-peliculas=# SELECT director, count(*) FROM peliculas GROUP BY (director) ORDER BY COUNT(director) LIMIT(10);
-      director       | count 
----------------------+-------
- Jonathan Demme      |     1
- Luc Besson          |     1
- Randal Kleiser      |     1
- Tony Kaye           |     1
- David Hand          |     1
- John McTiernan      |     1
- Ted Kotcheff        |     1
- Henry Selick        |     1
- Wolfgang Reitherman |     1
- Jean-Pierre Jeunet  |     1
-(10 rows)
 
-peliculas=# SELECT director, count(*) FROM peliculas GROUP BY (director) ORDER BY COUNT(director) DESC LIMIT(10);
+6.- peliculas=# SELECT director, count(*) FROM peliculas GROUP BY (director) ORDER BY COUNT(director) DESC LIMIT(10);
        director       | count 
 ----------------------+-------
  Steven Spielberg     |     9
